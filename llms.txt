@@ -1,0 +1,10 @@
+# flutter_input_kit
+
+Semantic form fields and code-only validators.
+
+- Import: `package:flutter_input_kit/flutter_input_kit.dart`
+- Validators return machine codes, never user strings
+- Fields take FieldSpec / FieldText from flutter_page_kit
+- Style via flutter_scale_kit + flutter_scale_theme_kit (FieldStyle enum)
+- Labels and errorText localized at the call site
+- No slang, riverpod, dio, supabase, firebase, or drift in lib/

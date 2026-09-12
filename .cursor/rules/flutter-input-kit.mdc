@@ -1,0 +1,14 @@
+---
+description: Session rules for flutter_input_kit
+alwaysApply: true
+---
+
+# flutter_input_kit
+
+- Public export only via `lib/flutter_input_kit.dart`.
+- Validators return error codes, never translated strings or slang.
+- Labels / errorText at the call site only.
+- Path-depend on sibling core, page, scale, and theme kits.
+- Use `fvm flutter` (pin 3.35.7). Never upgrade the shared SDK.
+- No dio, supabase, firebase, drift, or riverpod in `lib/`.
+- Do not start data_kit / nav_kit / app_kit unless asked.
