@@ -1,15 +1,21 @@
 ﻿# flutter_input_kit
 
-Semantic form fields and **code-only** validators for Lemsa apps. Depends on [`flutter_page_kit`](../flutter_page_kit), [`lemsa_core_kit`](../lemsa_core_kit), [`flutter_scale_kit`](../flutter_scale_kit), and [`flutter_scale_theme_kit`](../flutter_scale_theme_kit).
+[![pub package](https://img.shields.io/pub/v/flutter_input_kit.svg)](https://pub.dev/packages/flutter_input_kit)
+
+Semantic form fields and **code-only** validators for Lemsa apps.
+
+**Platforms:** Android, iOS, Linux, macOS, Web, Windows  
+**Requires:** Flutter `>=3.44.0`
 
 ## Install
 
-Path dependency while siblings are unpublished:
-
 ```yaml
 dependencies:
-  flutter_input_kit:
-    path: ../flutter_input_kit
+  flutter_input_kit: ^1.0.0
+  flutter_page_kit: ^1.0.0
+  lemsa_core_kit: ^1.0.0
+  flutter_scale_kit: ^2.0.2
+  flutter_scale_theme_kit: ^1.0.2
 ```
 
 ```dart
@@ -20,33 +26,20 @@ import 'package:flutter_input_kit/flutter_input_kit.dart';
 ## Owns
 
 - `Validators` / `ErrorCodes` — pure functions, machine codes only
-- `FieldSpec` + `FieldStyle` — bind a `FieldText` to label, keyboard, obscure, look
-- Semantic fields: `EmailField`, `PasswordField`, `PhoneField`, `MoneyField`, `DateField`, `SearchField`
-- `InputField` — general text field (one visual tree)
+- `FieldSpec` + `FieldStyle`
+- Semantic fields: `EmailField`, `PasswordField`, `PhoneField`, `MoneyField`, `DateField`, `SearchField`, …
 - `ListField<T>` — dynamic rows
-- Stubs: `CountryField`, `AddressField` (read-only + `onTap`; app supplies the picker)
 
-## Does not own
+Labels and `errorText` are localized at the **call site** (e.g. slang), not inside fields.
 
-Page controllers (`flutter_page_kit`), failures (`lemsa_core_kit`), slang, country/phone vendor widgets, maps, Riverpod, Dio.
+## Agent skill
 
-## Validation / i18n
-
-```dart
-late final email = text(
-  validators: [Validators.required, Validators.email],
-);
-
-EmailField(
-  email,
-  label: t.email, // already translated
-  showErrors: showFieldErrors,
-  errorText: (code) => t.error(code), // map code → string at call site
-)
+```bash
+npx skills add fodilfliti/flutter_input_kit
+# or: npx skills add fodilfliti/lemsa-skills
 ```
 
-Fields never call `.tr()` / slang.
+## Links
 
-## Schema gen
-
-`dart run flutter_input_kit:gen fields …` is **deferred**. Hand-write `FieldText` + semantic widgets for v1.
+- [GitHub](https://github.com/fodilfliti/flutter_input_kit)
+- [Lemsa skills](https://github.com/fodilfliti/lemsa-skills)

@@ -3,7 +3,6 @@ description: >
   Semantic form fields and code-only validators for Lemsa Flutter apps.
   FieldSpec, EmailField, PasswordField, ListField — labels localized at the call site.
 version: 1.0.0
-publish_to: none
 homepage: https://github.com/fodilfliti/flutter_input_kit
 repository: https://github.com/fodilfliti/flutter_input_kit
 issue_tracker: https://github.com/fodilfliti/flutter_input_kit/issues
@@ -16,14 +15,10 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  flutter_page_kit:
-    path: ../flutter_page_kit
-  flutter_scale_kit:
-    path: ../flutter_scale_kit
-  flutter_scale_theme_kit:
-    path: ../flutter_scale_theme_kit
-  lemsa_core_kit:
-    path: ../lemsa_core_kit
+  flutter_page_kit: ^1.0.0
+  flutter_scale_kit: ^2.0.2
+  flutter_scale_theme_kit: ^1.0.2
+  lemsa_core_kit: ^1.0.0
 
 dev_dependencies:
   flutter_test:
