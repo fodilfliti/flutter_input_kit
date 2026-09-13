@@ -62,15 +62,16 @@ class ListField<T> extends StatelessWidget {
             ),
           ),
         if (canAdd)
-          addLabel == null
-              ? IconButton(
-                  onPressed: onAdd,
-                  icon: Icon(Icons.add_circle_outline, size: 22.r),
-                )
-              : TextButton(
-                  onPressed: onAdd,
-                  child: Text(addLabel!),
-                ),
+          if (addLabel == null)
+            IconButton(
+              onPressed: onAdd,
+              icon: Icon(Icons.add_circle_outline, size: 22.r),
+            )
+          else
+            TextButton(
+              onPressed: onAdd,
+              child: Text(addLabel!),
+            ),
       ],
     );
   }

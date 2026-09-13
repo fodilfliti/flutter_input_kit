@@ -18,8 +18,8 @@ class PhoneField extends StatelessWidget {
     ValueChanged<String>? onChanged,
     bool enabled = true,
     bool readOnly = false,
-    String? dialHint,
-  })  : spec = FieldSpec(
+    this._dialHint,
+  }) : spec = FieldSpec(
           field: field,
           label: label,
           hint: hint,
@@ -32,15 +32,14 @@ class PhoneField extends StatelessWidget {
           onChanged: onChanged,
           enabled: enabled,
           readOnly: readOnly,
-        ),
-        _dialHint = dialHint;
+        );
 
   const PhoneField.spec(
     this.spec, {
     super.key,
     this.dialCode,
-    String? dialHint,
-  }) : _dialHint = dialHint;
+    this._dialHint,
+  });
 
   final FieldSpec spec;
   final FieldText? dialCode;
