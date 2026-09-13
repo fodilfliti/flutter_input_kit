@@ -1,6 +1,6 @@
 name: flutter_input_kit_example
 description: Demo form for flutter_input_kit.
-publish_to: 'none'
+publish_to: "none"
 version: 0.0.1
 
 environment:
@@ -12,14 +12,10 @@ dependencies:
     sdk: flutter
   flutter_input_kit:
     path: ../
-  flutter_page_kit:
-    path: ../../flutter_page_kit
-  flutter_scale_kit:
-    path: ../../flutter_scale_kit
-  flutter_scale_theme_kit:
-    path: ../../flutter_scale_theme_kit
-  lemsa_core_kit:
-    path: ../../lemsa_core_kit
+  flutter_page_kit: ^1.0.0
+  flutter_scale_kit: ^2.0.2
+  flutter_scale_theme_kit: ^1.0.3
+  lemsa_core_kit: ^1.0.0
 
 dev_dependencies:
   flutter_test:
