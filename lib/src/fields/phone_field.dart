@@ -18,8 +18,10 @@ class PhoneField extends StatelessWidget {
     ValueChanged<String>? onChanged,
     bool enabled = true,
     bool readOnly = false,
-    this._dialHint,
-  }) : spec = FieldSpec(
+    String? dialHint,
+    // ignore: prefer_initializing_formals -- named this._dialHint is illegal in Dart
+  })  : _dialHint = dialHint,
+        spec = FieldSpec(
           field: field,
           label: label,
           hint: hint,
@@ -38,8 +40,9 @@ class PhoneField extends StatelessWidget {
     this.spec, {
     super.key,
     this.dialCode,
-    this._dialHint,
-  });
+    String? dialHint,
+    // ignore: prefer_initializing_formals -- named this._dialHint is illegal in Dart
+  }) : _dialHint = dialHint;
 
   final FieldSpec spec;
   final FieldText? dialCode;
