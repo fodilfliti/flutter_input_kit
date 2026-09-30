@@ -76,13 +76,14 @@ packages:
       path: ".."
       relative: true
     source: path
-    version: "1.0.0"
+    version: "1.1.0"
   flutter_page_kit:
     dependency: "direct main"
     description:
-      path: "../../flutter_page_kit"
-      relative: true
-    source: path
+      name: flutter_page_kit
+      sha256: c481aa49a086eb629b2334563155cc117e2f11ebb15073033ddba22c9273e7b9
+      url: "https://pub.dev"
+    source: hosted
     version: "1.0.0"
   flutter_riverpod:
     dependency: transitive
@@ -95,17 +96,19 @@ packages:
   flutter_scale_kit:
     dependency: "direct main"
     description:
-      path: "../../flutter_scale_kit"
-      relative: true
-    source: path
+      name: flutter_scale_kit
+      sha256: d101c613be6fa052d5ce6a2a7fb8ac0b2cc3e97506715f886323bc53833977d1
+      url: "https://pub.dev"
+    source: hosted
     version: "2.0.2"
   flutter_scale_theme_kit:
     dependency: "direct main"
     description:
-      path: "../../flutter_scale_theme_kit"
-      relative: true
-    source: path
-    version: "1.0.2"
+      name: flutter_scale_theme_kit
+      sha256: "2a67890c6a7da197d3b226afcba983bef3ccc6bdab37283bbd3b91630b19f8e8"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.0.3"
   flutter_test:
     dependency: "direct dev"
     description: flutter
@@ -138,9 +141,10 @@ packages:
   lemsa_core_kit:
     dependency: "direct main"
     description:
-      path: "../../lemsa_core_kit"
-      relative: true
-    source: path
+      name: lemsa_core_kit
+      sha256: cb1d7ded38b8e333120eeb45dac35e29a180ea3aababa535bc4c0c58e227a1a9
+      url: "https://pub.dev"
+    source: hosted
     version: "1.0.0"
   listen:
     dependency: transitive

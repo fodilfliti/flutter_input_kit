@@ -2,14 +2,15 @@
 name: flutter-input-kit
 description: >
   Use flutter_input_kit for semantic fields (EmailField, PasswordField,
-  PhoneField, MoneyField, DateField, SearchField), FieldSpec, ListField, and
-  code-only Validators. Activate for form inputs, error codes, FieldStyle —
+  PhoneField, MoneyField, DateField, SearchField, CountryField), FieldSpec,
+  ListField, country data + showCountryPicker, and code-only Validators.
+  Activate for form inputs, error codes, FieldStyle, country/dial-code pickers —
   not for slang inside the kit, CustomTextField 40-param APIs, Dio, Riverpod,
   maps, or intl_phone_field.
 license: MIT
 metadata:
   author: fodilfliti
-  version: "0.0.1"
+  version: "1.1.0"
   homepage: https://pub.dev/packages/flutter_input_kit
 ---
 
@@ -29,6 +30,34 @@ Use this package for:
 - `FieldSpec` + `FieldStyle` (outline / underline / corner)
 - `ListField<T>` dynamic rows
 - Mapping codes → copy at the **call site** (`errorText: (code) => t.error(code)`)
+- Countries: `Countries.all` / `byIso` / `byDialCode` / `search`, `Country.flag`
+  (emoji, no assets), `showCountryPicker` / `CountryPickerList`
+
+## Country + dial code
+
+Do not copy country lists into apps. Use the kit data and picker:
+
+```dart
+CountryField(
+  c.country,
+  code: c.countryIso,
+  label: t.country,
+  onTap: () async {
+    final picked = await showCountryPicker(
+      context,
+      selected: c.countryIso.value,
+      favorites: const ['DZ', 'FR'],
+      searchHint: t.search,
+      emptyText: t.noResults,
+      nameOf: (country) => t.countries[country.iso2] ?? country.name,
+    );
+    if (picked == null) return;
+    c.country.controller.text = picked.name;
+    c.countryIso.controller.text = picked.iso2;
+    c.dial.controller.text = picked.dialCodeWithPlus; // PhoneField dialCode
+  },
+)
+```
 
 ## Rules
 
@@ -46,7 +75,8 @@ Use this package for:
 | Dio / Supabase / Firebase / Drift | `flutter_data_kit_*` |
 | auto_route | `flutter_nav_kit` |
 | slang strings / `.tr()` | app |
-| `intl_phone_field`, maps, country picker UI | app (`CountryField` / `AddressField` / `PhoneField` are triggers or plain text) |
+| `intl_phone_field`, maps | app (`AddressField` / `PhoneField` are plain text) |
+| Country names in other languages | app (`nameOf:` from your translations) |
 | Riverpod | app / page_kit riverpod barrel |
 
 ## Quick example

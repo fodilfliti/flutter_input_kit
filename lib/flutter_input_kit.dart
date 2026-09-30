@@ -16,6 +16,8 @@ export 'package:flutter_page_kit/flutter_page_kit.dart'
         FieldValidator,
         Validatable;
 
+export 'src/country/country.dart';
+export 'src/country/country_picker.dart';
 export 'src/fields/address_field.dart';
 export 'src/fields/country_field.dart';
 export 'src/fields/date_field.dart';

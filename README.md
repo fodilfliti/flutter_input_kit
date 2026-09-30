@@ -11,11 +11,11 @@ Semantic form fields and **code-only** validators for Lemsa apps.
 
 ```yaml
 dependencies:
-  flutter_input_kit: ^1.0.0
+  flutter_input_kit: ^1.1.0
   flutter_page_kit: ^1.0.0
   lemsa_core_kit: ^1.0.0
   flutter_scale_kit: ^2.0.2
-  flutter_scale_theme_kit: ^1.0.2
+  flutter_scale_theme_kit: ^1.0.3
 ```
 
 ```dart
@@ -29,6 +29,19 @@ import 'package:flutter_input_kit/flutter_input_kit.dart';
 - `FieldSpec` + `FieldStyle`
 - Semantic fields: `EmailField`, `PasswordField`, `PhoneField`, `MoneyField`, `DateField`, `SearchField`, …
 - `ListField<T>` — dynamic rows
+- Countries — `Countries.all` (ISO, dial code, English name), `byIso`,
+  `byDialCode`, `search`, flag emoji (no image assets)
+- `showCountryPicker` / `CountryPickerList` — searchable picker with pinned
+  favorites and localized names via `nameOf`; `CountryField` shows the flag
+
+```dart
+final picked = await showCountryPicker(
+  context,
+  favorites: const ['DZ', 'FR'],
+  searchHint: t.search,
+  nameOf: (c) => t.countries[c.iso2] ?? c.name,
+);
+```
 
 Labels and `errorText` are localized at the **call site** (e.g. slang), not inside fields.
 

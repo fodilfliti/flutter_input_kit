@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_input_kit/src/country/country.dart';
 import 'package:flutter_input_kit/src/fields/input_field.dart';
 import 'package:flutter_input_kit/src/spec/field_spec.dart';
 import 'package:flutter_input_kit/src/spec/field_style.dart';
 import 'package:flutter_page_kit/flutter_page_kit.dart' hide Validators;
 import 'package:flutter_scale_kit/flutter_scale_kit.dart';
 
-/// Read-only country trigger. The app supplies the picker via `onTap`.
+/// Read-only country trigger. Pair `onTap` with `showCountryPicker`; [code]
+/// holds the ISO alpha-2 and renders as a flag emoji prefix.
 class CountryField extends StatelessWidget {
   CountryField(
     FieldText field, {
@@ -55,7 +57,10 @@ class CountryField extends StatelessWidget {
             (iso != null && iso.isNotEmpty
                 ? Padding(
                     padding: EdgeInsets.all(12.r),
-                    child: Text(iso),
+                    child: Text(
+                      flagEmoji(iso).isEmpty ? iso : flagEmoji(iso),
+                      style: TextStyle(fontSize: 20.sp),
+                    ),
                   )
                 : null),
         suffix: spec.suffix ?? Icon(Icons.arrow_drop_down, size: 22.r),
